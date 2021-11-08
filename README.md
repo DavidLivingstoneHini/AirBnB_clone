@@ -30,5 +30,5 @@ EOF  all  count  create  destroy  help  quit  show  update
 
 ## Authors
 
-- David Livingstone Hini - [kwamelivingstone77@gmail.com](https://github.com/DavidLivingstoneHini)
-- Stacey Nakanwagi - [staceynakanwagi@gmail.com](https://github.com/Stacey-bee)
+- David Livingstone Hini ~ [kwamelivingstone77@gmail.com](https://github.com/DavidLivingstoneHini)
+- Stacey Nakanwagi ~ [staceynakanwagi@gmail.com](https://github.com/Stacey-bee)
