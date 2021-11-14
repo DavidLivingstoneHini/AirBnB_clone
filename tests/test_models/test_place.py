@@ -1,52 +1,43 @@
 #!/usr/bin/python3
-"""Unittest module for the Place Class."""
-
-import unittest
-from datetime import datetime
-import time
-from models.place import Place
-import re
+''' module for place tests '''
+from unittest import TestCase
 import json
-from models.engine.file_storage import FileStorage
-import os
-from models import storage
+import re
+from uuid import UUID, uuid4
+from datetime import datetime
+from time import sleep
+
 from models.base_model import BaseModel
+from models.place import Place
 
 
-class TestPlace(unittest.TestCase):
+class TestPlace(TestCase):
+    ''' tests Place class '''
+    def test_9(self):
+        ''' task 9 tests '''
+        self.assertTrue(issubclass(Place, BaseModel))
+        self.assertEqual(Place.city_id, '')
+        self.assertEqual(Place.user_id, '')
+        self.assertEqual(Place.name, '')
+        self.assertEqual(Place.description, '')
 
-    """Test Cases for the Place class."""
+        self.assertTrue(type(Place.number_rooms) is int)
+        self.assertEqual(Place.number_rooms, 0)
 
-    def setUp(self):
-        """Sets up test methods."""
-        pass
+        self.assertTrue(type(Place.number_bathrooms) is int)
+        self.assertEqual(Place.number_bathrooms, 0)
 
-    def tearDown(self):
-        """Tears down test methods."""
-        self.resetStorage()
-        pass
+        self.assertTrue(type(Place.max_guest) is int)
+        self.assertEqual(Place.max_guest, 0)
 
-    def resetStorage(self):
-        """Resets FileStorage data."""
-        FileStorage._FileStorage__objects = {}
-        if os.path.isfile(FileStorage._FileStorage__file_path):
-            os.remove(FileStorage._FileStorage__file_path)
+        self.assertTrue(type(Place.price_by_night) is int)
+        self.assertEqual(Place.price_by_night, 0)
 
-    def test_8_instantiation(self):
-        """Tests instantiation of Place class."""
+        self.assertTrue(type(Place.latitude) is float)
+        self.assertEqual(Place.latitude, 0.0)
 
-        b = Place()
-        self.assertEqual(str(type(b)), "<class 'models.place.Place'>")
-        self.assertIsInstance(b, Place)
-        self.assertTrue(issubclass(type(b), BaseModel))
+        self.assertTrue(type(Place.longitude) is float)
+        self.assertEqual(Place.longitude, 0.0)
 
-    def test_8_attributes(self):
-        """Tests the attributes of Place class."""
-        attributes = storage.attributes()["Place"]
-        o = Place()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(o, k))
-            self.assertEqual(type(getattr(o, k, None)), v)
-
-if __name__ == "__main__":
-    unittest.main()
+        self.assertTrue(type(Place.amenity_ids) is list)
+        self.assertEqual(Place.amenity_ids, [])
