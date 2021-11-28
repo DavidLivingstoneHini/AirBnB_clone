@@ -7,3 +7,9 @@ header{
 	background-position: 20px;
 	background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 950px){
+	header{
+		background-position: center;
+	}
+}
